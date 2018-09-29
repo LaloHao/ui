@@ -15,7 +15,7 @@ story.add('demo', () => (
     backgroundColor="yellow"
     flexDirection="column"
     color="white"
-    >
+  >
     <Container
       alignItems="center"
       justifyContent="center"
@@ -100,10 +100,10 @@ story.add('demo', () => (
 story.add('empty', () => <Container />)
 story.add('with text', () => <Container>{text('text', 'with text')}</Container>)
 
-story.add('with border', () => {
-  const border = {
-    width: number('border width', 1),
-    style: select('border style', {
+const _border = (group) => {
+  return {
+    width: number(`${group} border width`, 1, {}, group),
+    style: select(`${group} border style`, {
       none: 'none',
       hidden: 'hidden',
       dotted: 'dotted',
@@ -114,13 +114,48 @@ story.add('with border', () => {
       ridge: 'ridge',
       inset: 'inset',
       outset: 'outset',
-    }, 'solid'),
-    color: color('border color', 'black'),
+    }, 'solid', group),
+    color: color(`${group} border color`, '#000000', group),
   };
+};
 
+story.add('with border', () => {
+  const border = _border('all');
   return (
     <Container border={`${border.width}px ${border.style} ${border.color}`}>
       with border
+    </Container>
+  );
+})
+
+story.add('with independent borders', () => {
+  const borderTop = _border('top');
+  const borderRight = _border('right');
+  const borderBottom = _border('bottom');
+  const borderLeft = _border('left');
+  return (
+    <Container
+      borderTop={`${borderTop.width}px ${borderTop.style} ${borderTop.color}`}
+      borderRight={`${borderRight.width}px ${borderRight.style} ${borderRight.color}`}
+      borderBottom={`${borderBottom.width}px ${borderBottom.style} ${borderBottom.color}`}
+      borderLeft={`${borderLeft.width}px ${borderLeft.style} ${borderLeft.color}`}
+    >
+      with independent border
+    </Container>
+  );
+})
+
+const _margin = (group) => {
+  return {
+    width: number(`${group} margin`, 1, {}, group),
+  };
+};
+
+story.add('with margin', () => {
+  const margin = number(`margin`, 100);
+  return (
+    <Container margin={`${margin}px`}>
+      with margin
     </Container>
   );
 })

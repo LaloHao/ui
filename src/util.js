@@ -20,6 +20,11 @@ export const flexBasis = style('flexBasis', 'flex-basis');
 export const flexDirection = style('flexDirection', 'flex-direction');
 
 export const border = style('border', 'border');
+export const borderTop = style('borderTop', 'border-top');
+export const borderRight = style('borderRight', 'border-right');
+export const borderBottom = style('borderBottom', 'border-bottom');
+export const borderLeft = style('borderLeft', 'border-left');
+
 export const color = style('color', 'color', 'inherit');
 export const backgroundColor = style('backgroundColor', 'background-color');
 export const borderRadius = style('borderRadius', 'border-radius');
