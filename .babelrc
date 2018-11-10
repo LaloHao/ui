@@ -1,10 +1,10 @@
 {
   "presets": [
     "flow",
-    "react",
+    "react"
   ],
   "plugins": [
     "babel-plugin-inline-import",
-    "react-docgen",
-  ],
+    "react-docgen"
+  ]
 }
