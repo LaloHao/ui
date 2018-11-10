@@ -4,6 +4,7 @@
     "react",
   ],
   "plugins": [
+    "babel-plugin-inline-import",
     "react-docgen",
   ],
 }

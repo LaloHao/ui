@@ -8,7 +8,7 @@ export const style = (prop, css, fallback) => (props) => {
     return null;
   }
 
-  return `${css}: ${value}`;
+  return `${css}: ${value};`;
 };
 
 // export const # = style('#', '#');

@@ -1,84 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+// @flow
+import * as React from 'react';
+import { Container as ContainerWrapper } from './wrappers';
+import { $alignItems } from './enum';
 
-import {
-  flex,
-  flexDirection,
-  margin,
-  padding,
-  width,
-  height,
-  backgroundColor,
-  color,
-  fontWeight,
-  alignSelf,
-  alignItems,
-  alignContent,
-  justifySelf,
-  justifyItems,
-  justifyContent,
-  border,
-  borderTop,
-  borderRight,
-  borderBottom,
-  borderLeft,
-  borderRadius,
-  opacity,
-  visibility,
-  display,
-  zIndex,
-  boxShadow,
-  top,
-  right,
-  bottom,
-  left,
-  flexBasis,
-  cursor,
-  maxWidth,
-  maxHeight,
-  position,
-} from './util';
+// const $alignItems = {
+//   'normal': 'normal',
+//   'stretch': 'stretch',
+//   'center': 'center',
+//   'start': 'start',
+//   'end': 'end',
+//   'flex-start': 'flex-start',
+//   'flex-end': 'flex-end',
+//   'self-start': 'self-start',
+//   'self-end': 'self-end',
+//   'baseline': 'baseline',
+//   'first baseline': 'first baseline',
+//   'last baseline': 'last baseline',
+//   'safe center': 'safe center',
+//   'unsafe center': 'unsafe center',
+//   'inherit': 'inherit',
+//   'initial': 'initial',
+//   'unset': 'unset',
+// };
 
-const ContainerWrapper = styled.div`
-  ${flex};
-  ${flexDirection};
-  ${margin};
-  ${padding};
-  ${width};
-  ${height};
-  ${backgroundColor}
-  ${color};
-  ${fontWeight};
-  ${alignSelf};
-  ${alignItems};
-  ${alignContent};
-  ${justifySelf};
-  ${justifyItems};
-  ${justifyContent};
-  ${border};
-  ${borderTop};
-  ${borderRight};
-  ${borderBottom};
-  ${borderLeft};
-  ${borderRadius};
-  ${opacity};
-  ${visibility};
-  ${display};
-  ${zIndex};
-  ${boxShadow};
-  ${top};
-  ${right};
-  ${bottom};
-  ${left};
-  ${flexBasis};
-  ${cursor};
-  ${maxWidth};
-  ${maxHeight};
-  min-width: 0;
-  ${position};
-`;
-
-type Props = {
+export type ContainerProps = {
   /** Shorthard property for: `flexGrow`, `flexShrink`, `flexBasis` */
   flex?: number | string,
   /** Container direction */
@@ -101,15 +46,15 @@ type Props = {
   /** Sets text color */
   color?: string,
   /** Sets font-weight */
-  fontWeight?: string,
+  fontWeight?: 'normal' | 'bold' | 'lighter' | 'bolder' | number,
 
-  alignSelf?: string,
-  alignItems?: string,
-  alignContent?: string,
+  alignSelf?: 'auto' | 'normal' | 'center' | 'start' | 'end' | 'self-start' | 'self-end' | 'flex-start' | 'flex-end' | 'baseline' | 'first baseline' | 'last baseline' | 'stretch' | 'safe center' | 'unsafe center' | 'inherit' | 'initial' | 'unset',
+  alignItems?: $Keys<typeof $alignItems>,
+  alignContent?: 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'normal' | 'baseline' | 'first baseline' | 'last baseline' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch' | 'safe center' | 'unsafe center' | 'inherit' | 'initial' | 'unset',
 
-  justifySelf?: string,
-  justifyItems?: string,
-  justifyContent?: string,
+  justifySelf?: 'auto' | 'normal' | 'stretch' | 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'left' | 'right' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center' | 'inherit' | 'initial' | 'unset',
+  justifyItems?: 'auto' | 'normal' | 'stretch' | 'center' | 'start' | 'end' | 'flex-start' | 'flex-end' | 'self-start' | 'self-end' | 'left' | 'right' | 'baseline' | 'first baseline' | 'last baseline' | 'safe center' | 'unsafe center' | 'legacy right' | 'legacy left' | 'legacy center' | 'inherit' | 'initial' | 'unset',
+  justifyContent?: 'center' | 'start' | 'end' | 'flex-start' | 'flex-end'| 'left' | 'right' | 'normal' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch' | 'safe center' | 'unsafe center' | 'inherit' | 'initial' | 'unset',
 
   border?: number | string,
   borderTop?: number | string,
@@ -135,11 +80,9 @@ type Props = {
   // min-width: 0;
   position?: string,
 
-  /** Function to be called when the button is clicked */
   onClick?: Function,
 };
 
-const Container = (props: Props) => <ContainerWrapper {...props} />
-// Container.displayName = 'Container';
+const Container = (props: ContainerProps) => <ContainerWrapper {...props} />;
 
 export default Container;

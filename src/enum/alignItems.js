@@ -1,0 +1,20 @@
+// @flow
+export const $alignItems = {
+  'normal': 'normal',
+  'stretch': 'stretch',
+  'center': 'center',
+  'start': 'start',
+  'end': 'end',
+  'flex-start': 'flex-start',
+  'flex-end': 'flex-end',
+  'self-start': 'self-start',
+  'self-end': 'self-end',
+  'baseline': 'baseline',
+  'first baseline': 'first baseline',
+  'last baseline': 'last baseline',
+  'safe center': 'safe center',
+  'unsafe center': 'unsafe center',
+  'inherit': 'inherit',
+  'initial': 'initial',
+  'unset': 'unset',
+};

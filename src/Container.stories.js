@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -7,21 +8,34 @@ import { linkTo } from '@storybook/addon-links';
 import { text, number, select, color } from '@storybook/addon-knobs/react';
 
 import Container from './Container';
+import { $alignItems } from './enum';
 
 const story = storiesOf('Container', module);
 
 story.add('demo', () => (
   <Container
-    backgroundColor="yellow"
-    flexDirection="column"
-    color="white"
+    backgroundColor={color('parent backgroundColor', 'rgba(72,177,114,1)', 'parent')}
+    flexDirection={select('parent flexDirection', {
+      column: 'column',
+      row: 'row',
+    }, 'column', 'parent')}
+    color={color('parent color', 'white', 'parent')}
   >
     <Container
-      alignItems="center"
-      justifyContent="center"
-      height="300px"
+      alignItems={select('alignItems', $alignItems, 'center', 'child 1')}
+      justifyContent={select('justifyContent', {
+        center: 'center',
+        'flex-start': 'flex-start',
+        'flex-end': 'flex-end',
+      }, 'center', 'child 1')}
+      height={`${number('height', 300, {}, 'child 1')}px`}
       color="black"
-      fontWeight="bold"
+      fontWeight={select('fontWeight', {
+        normal: 'normal',
+        bold: 'bold',
+        lighter: 'lighter',
+        bolder: 'bolder' ,
+      }, 'bold', 'child 1')}
       >
       everything is flex
     </Container>
